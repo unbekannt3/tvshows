@@ -1,0 +1,14 @@
+<h1>TV Shows</h1>
+
+<table class="table table-responsive table-hover">
+  <thead>
+    <th>ID</th>
+    <th>Label</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let s of shows">
+      <td>{{s.id}}</td>
+      <td>{{s.name}}</td>
+    </tr>
+  </tbody>
+</table>
