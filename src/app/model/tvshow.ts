@@ -1,7 +1,9 @@
 export class TVShow {
 
+  coverURL: string;
+  summary: string;
+
   constructor(
-    public id: number,
     public name: string
   ) {
   }

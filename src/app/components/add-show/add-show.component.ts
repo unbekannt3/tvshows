@@ -9,15 +9,14 @@ import { TVShow } from '../../model/tvshow';
 })
 export class AddShowComponent implements OnInit {
 
-  public tempShow: TVShow = new TVShow(null, null);
+  public tempShow: TVShow = new TVShow(null);
 
   constructor(
     public tvShowService: TVShowService
   ) { }
 
   add() {
-    this.tvShowService.addShow(new TVShow(this.tempShow.id, this.tempShow.name));
-    this.tempShow.id = null;
+    this.tvShowService.addShow(new TVShow(this.tempShow.name));
     this.tempShow.name = null;
   }
 

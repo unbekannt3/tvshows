@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { TVShow } from '../model/tvshow';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -7,16 +8,22 @@ import { TVShow } from '../model/tvshow';
 export class TVShowService {
 
   private showList: TVShow[] = [];
+  private currentActiveShow: TVShow;
 
-  constructor() {
-    this.showList.push(new TVShow(1, 'KP'));
-    this.showList.push(new TVShow(2, 'Das Film'));
-    this.showList.push(new TVShow(3, 'Der Serie'));
+  constructor(
+    public http: HttpClient
+  ) {
+    this.showList.push(new TVShow('Breaking Bad'));
+    this.showList.push(new TVShow('Colony'));
 
   }
 
   get shows() {
     return this.showList;
+  }
+
+  get currentShow() {
+    return this.currentActiveShow;
   }
 
   addShow(tvs: TVShow) {
@@ -25,6 +32,14 @@ export class TVShowService {
 
   deleteShow(tvs: TVShow) {
     this.showList = this.showList.filter(sle => tvs !== sle);
+  }
+
+  async showDetails(tvs: TVShow) {
+    const data = await this.http.get('http://api.tvmaze.com/singlesearch/shows?q=' + tvs.name).toPromise();
+    tvs.coverURL = data['image']['medium'];
+    tvs.summary = data['summary'];
+
+    this.currentActiveShow = tvs;
   }
 
 }
