@@ -2,10 +2,14 @@
 
 <form action="none" class="form-inline">
 
-  <div class="form-group">
-    <label for="label">Label</label>
-    <input type="text" id="label" name="label" class="form-control" [(ngModel)]="tempShow.name">
+  <label class="sr-only" for="iLabel">Show Name</label>
+  <div class="input-group mb-2 mr-sm-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Show Name</div>
+    </div>
+    <input type="text" class="form-control" id="iLabel" name="iLabel" [(ngModel)]="tempShow.name"
+      placeholder="Brooklyn Nine-Nine">
   </div>
 
-  <button class="btn btn-success" (click)="add()">Add</button>
+  <button class="btn btn-success mb-2" (click)="add()">Add</button>
 </form>
