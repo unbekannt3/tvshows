@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TVShowService } from '../../services/tvshow.service';
+import { Observable } from 'rxjs';
+import { TVShow } from '../../model/tvshow';
 
 @Component({
   selector: 'app-show-details',
@@ -15,6 +17,7 @@ export class ShowDetailsComponent implements OnInit {
   get show() {
 
     return this.tvShowService.currentShow;
+
   }
 
 

@@ -6,7 +6,7 @@
     <th></th>
   </thead>
   <tbody>
-    <tr *ngFor="let s of shows" (click)="showDetails(s)">
+    <tr *ngFor="let s of shows | async" (click)="showDetails(s)">
       <td>{{s.name}}</td>
       <td><button class="btn btn-danger" (click)="delete(s)">Delete</button></td>
     </tr>
