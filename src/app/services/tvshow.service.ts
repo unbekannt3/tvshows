@@ -30,7 +30,7 @@ export class TVShowService {
 
   async addShow(tvs: TVShow) {
 
-    const data = await this.http.get('http://api.tvmaze.com/singlesearch/shows?q=' + tvs.name).toPromise();
+    const data = await this.http.get('https://api.tvmaze.com/singlesearch/shows?q=' + tvs.name).toPromise();
     tvs.name = data['name'];
     tvs.coverURL = data['image']['medium'];
     tvs.summary = data['summary'];
