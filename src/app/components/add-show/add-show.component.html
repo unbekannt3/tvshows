@@ -1,0 +1,15 @@
+<h4>Add Show</h4>
+
+<form action="none" class="form-inline">
+
+  <label class="sr-only" for="iLabel">Show Name</label>
+  <div class="input-group mb-2 mr-sm-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">Show Name</div>
+    </div>
+    <input type="text" class="form-control" id="iLabel" name="iLabel" [(ngModel)]="tempShow.name"
+      placeholder="Brooklyn Nine-Nine">
+  </div>
+
+  <button class="btn btn-success mb-2" (click)="add()">Add</button>
+</form>
